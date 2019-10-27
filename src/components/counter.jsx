@@ -4,6 +4,7 @@ class Counter extends Component {
   state = {
     count: 1,
     tags: []
+    // tags: ["hello", "hi", "hey"]
   };
 
   renderTags() {
@@ -24,6 +25,17 @@ class Counter extends Component {
         {this.renderTags()}
       </div>
     );
+  }
+
+  getBadgeClasses() {
+    let classes = "badge m-2 badge-";
+    classes += this.state.count === 0 ? "warning" : "primary";
+    return classes;
+  }
+
+  formatCount() {
+    const { count } = this.state;
+    return count === 0 ? "Zero" : count;
   }
 }
 
